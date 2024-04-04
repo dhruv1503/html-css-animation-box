@@ -1,0 +1,102 @@
+:root {
+    --color-gray: #8c97b7;
+    --color-blue: #1c38f1;
+    --color-green: #1fcdb0;
+    --input-height: 3rem;
+  }
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.input-box{
+    background: #fff;
+  box-shadow: 0 0.5rem 1rem #0003;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr;
+  grid-column-gap: 1rem;
+  grid-template-areas: 'input button';
+  animation-name: slideup;
+animation-duration: 2s;
+}
+
+.input-box__input{
+    grid-area: input;
+    padding: 0 1rem;
+    height: var(--input-height);
+    border: 2px solid var(--color-gray);
+    border-radius: 0.25rem;
+    outline:none;
+    transition: outline 0.3s 0s ease-in-out;
+}
+
+.input-box__button{
+    grid-area: button;
+    border: none;
+    padding: 0 1rem;
+    color: white;
+    font-weight: bold;
+    border-radius: 0.25rem;
+    height: var(--input-height);
+    background-color: var(--color-gray);
+    transition: background-color 0.3s 0s ease-in-out;
+    cursor: pointer;
+}
+
+.input-box__button:focus{
+background-color: var(--color-blue);
+}
+
+.input-box__button:hover{
+    animation-name: shake;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+}
+
+.input-box__input:focus, .input-box__input:focus-visible{
+    border:2px solid var(--color-blue);
+}
+
+@keyframes slideup {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes shake{
+    0%, 40%, 80%{
+        transform: translateX(2%);
+    }
+    20%, 60%, 100%{
+        transform: translateX(-2%);
+    }
+    /* 40%{
+        transform: translateX(2%);
+    }
+    60%{
+        transform: translateX(-2%);
+    }
+    80%{
+        transform: translateX(2%);
+    }
+    100%{
+        transform: translateX(-2%);
+    } */
+}
